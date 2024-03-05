@@ -1,2 +1,6 @@
 /__pycache__
 /pipeline/__pycache__
+cl_crawl/__pycache__
+/node_modules
+/backup
+backup_title_url.csv
