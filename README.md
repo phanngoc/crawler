@@ -1,11 +1,6 @@
-## Create table use command
+# Crawlers for news magazine in vietnam.
 
-```
-python pipeline/model.py
-```
-
-
-## Sql for create table
+## Sql for table structure
 
 ```
 CREATE TABLE pyml.crawl_data (
@@ -24,35 +19,10 @@ COLLATE=utf8_general_ci;
 
 ```
 
-# Run crawl daily for site
+# Run crawl daily.
 
 ```
-from imp import reload
-
-import cl_crawl.helper as helper
-import cl_crawl.vtc_new as vtc_new
-import crawl
-reload(crawl)
-reload(helper)
-
-
-tn = crawl.CrawlCafeF()
-tn.run(daily=True)
-
-crawl.VnexpressCrawler().run(daily=True)
-
-crawl.VnEconomySpider().run(daily=True)
-
-crawl.CrawlThanhNien().run(daily=True)
-
-vtc_new.VTCCrawler().run(daily=True)
-
-driver = crawl.create_driver()
-driver2 = crawl.create_driver()
-
-vs = crawl.CrawlVietStock(driver=driver, driver2=driver2)
-vs.run(fresh_start=True, daily=True)
-
-driver.quit()
-driver2.quit()
+python cl_crawl/vnexpress.py
+python cl_crawl/dantri.py
+python cl_crawl/vneconomy.py
 ```
